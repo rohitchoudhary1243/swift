@@ -1,0 +1,18 @@
+struct student
+{
+    var subject: String
+    var roll: Int
+    var result: Double
+}
+
+// in structures we can direct pass arguments without init (constructor) method
+//creating instance
+var rohit = student(subject: "math", roll: 12323, result: 99.99)
+var manish = student(subject: "geography", roll: 5345, result: 80.99)
+
+// structures has value type data and classes are reference type
+var alex = rohit
+alex.subject = "phylosopy"
+
+print("rohit has \(rohit.subject) subject, \(rohit.roll) roll number and \(rohit.result) result in the examination")
+print("and alex has \(rohit.subject) subject, \(rohit.roll) roll number and \(rohit.result) result in the examination")
