@@ -1,0 +1,56 @@
+class temprature
+{
+    var temp: Double
+    
+    init(){
+        temp = 40.38
+    }
+}
+var toInstance = temprature()
+
+print("the avarage temprature of city is: \(toInstance.temp)")
+
+
+//class with function with global variable
+class employee
+{
+    var salary: Int
+    init(amount: Int)
+    {
+        self.salary = amount
+    }
+    
+    func printSalary() 
+    {
+        print("the salary of employee is \(salary)")
+    }
+}
+var setSalary = employee(amount: 30000)
+setSalary.printSalary()
+
+
+
+// some calculations in class
+class calculate
+{
+    var a: Int
+    var b: Int
+    var c: Int
+    init(value1: Int, value2: Int)
+    {
+        self.a = value1
+        self.b = value2
+        c = a + b
+    }
+    func total(num: Int) -> Int
+    {
+      return c - num
+    }
+    
+    func result()
+    {
+        print("the total is: \(total(num: 20))") 
+    }
+}
+var resultInstance = calculate(value1: 80, value2: 90)
+resultInstance.result()
