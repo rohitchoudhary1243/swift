@@ -1,0 +1,38 @@
+// closure
+
+var greeting:(String) -> () =
+{
+    message in print("Hello, \(message)")
+}
+greeting("you are welcome")
+
+
+
+// closure with return type
+var username:(Int) -> (String) =
+{ 
+    number in
+    if (number == 123456789)
+    {
+        return "username of this '\(number)' number is: username123"
+    }
+    return ""
+}
+print(username(123456789))
+
+
+
+// table using closure
+var table:(Int,Int) -> () = 
+{ 
+  (num1, num2) in 
+  for num2 in 1...num1
+  {
+   print("\(num1) * \(num2) = \(num1 * num2)")
+  }
+}
+table(10,10)
+
+
+
+
