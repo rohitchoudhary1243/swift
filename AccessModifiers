@@ -1,0 +1,69 @@
+
+open class class1
+{
+    //private var instance1 = class1()
+}
+private var instance1 = class1()
+
+
+print("Code is fine!")
+
+
+public class class2
+{
+    //private var instancePrivate = class2()
+}
+public var instance2 = class2()
+// can't accessible  //open var instance2 = class2()
+
+ private class class3
+ {
+     
+ }
+ 
+ private var instance3 = class3()
+ // cannot access // public var instance3 = class3()
+ 
+ 
+ class areaBase
+ {
+     var length: Double = 12.34
+     var width: Double = 15.31
+     
+     fileprivate var area: Double
+     {
+         get
+         {
+             return length * width
+         }
+         set
+         {
+             length += 1
+         }
+        
+     }
+ }
+ 
+ var object = areaBase()
+ object.area = object.length * object.width
+ print("The area is:",object.area)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
