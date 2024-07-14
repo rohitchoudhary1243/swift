@@ -1,0 +1,19 @@
+// Enumeration
+enum days
+{
+    case sunday, monday, tuesday, wednesday, thursday, friday, saturday
+}
+
+func isHoliday(day: days) -> String
+{
+    if (day == days.sunday)
+    {
+    return "Today is holiday! Enjoy..."
+    }
+    else 
+    {
+      return  "Today is not holiday"
+    }
+    
+}
+print(isHoliday(day: days.sunday))
