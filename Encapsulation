@@ -1,0 +1,67 @@
+// Encapsulation
+
+class calc
+{
+    let num1: Int
+    let num2: Int
+    private var result: Int = 0
+    
+    init(a: Int, b: Int)
+    {
+        self.num1 = a
+        self.num2 = b
+    }
+    
+    func sum()
+    {
+        result = num1 + num2
+    }
+    
+    func printSum()
+    {
+        print("the sum of \(num1) + \(num2) is: \(result)")
+    }
+}
+
+let call = calc(a: 24,b: 25)
+call.sum()
+call.printSum()
+
+
+// using get set method
+
+class replace
+{
+    private var x: Int = 0
+    public var z: Int
+    {
+        get
+        {
+            return x * 2
+        }
+        set
+        {
+            x = newValue / 2
+        }
+    }
+}
+let setX = replace()
+setX.z = 12
+print("now We can access the private variable x =",setX.z)
+
+
+// static keyword
+
+class printName
+{
+    static var staticName = "this is the string value stored in static variable"
+    var name: String = "this is just string value"
+}
+print(printName.staticName) // using static keyword we can access the internal variable of a class outside of the class
+//print(printName.name) // we can't access because this not static
+
+
+
+// what is ? and !
+// use ? if the value can become nil in the future, so that you test for that.
+// use ! if it really shouldn't beome nil in the future, but it needs to be initially.
