@@ -1,0 +1,32 @@
+// polymorphism
+class classSuper
+{
+    
+     func print1()
+    {
+        print("this is the print1 function with no arguments in superClass")
+    }
+    func print1(label: String)
+    {
+        print("this is the print1 function with argument \(label)")
+    }
+    // when the functions name are same and we identify them by it's arguments, parameters , this is called overloading
+}
+// var result = classSuper()
+// result.print1(num: 12)
+
+class classSub: classSuper //
+{
+    override func print1()
+    {
+        print("this is the print1 function with no arguments in subClass")
+        super.print1()
+    }
+    override func print1(label: String)
+    {
+        print("this is the print1 function with argument in subClass \(label)")
+        super.print1(label: "'calling by super method from subClass'")
+    }
+}
+var result = classSub()
+result.print1(label: "'Calling by instance'")
