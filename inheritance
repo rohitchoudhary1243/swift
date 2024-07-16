@@ -1,0 +1,30 @@
+// inheritance
+class superClass
+{
+    var num1: Int
+    var num2: Int
+    init(x: Int, y: Int)
+    {
+        self.num1 = x
+        self.num2 = y
+    }
+}
+
+class subClass: superClass
+{
+    var message: String
+    //var op: Int
+    init(x: Int, y: Int, message: String)
+    {
+        self.message = message
+        //self.op = op
+        super.init(x: x, y: y)
+    }
+    func printCalculation()
+    {
+        print(message, num1, "and", num2, "is: ", num1 + num2)
+    }
+}
+
+var result = subClass(x: 12, y: 34, message: "the sum of" )
+result.printCalculation()
