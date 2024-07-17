@@ -26,12 +26,13 @@ do {
  try labProject(fuel: 700, hydrogen: 500)
 }
 catch let Error{
-     switch Error
-     {
-         case ErrorList.error1: print("thorws error1")
-         case ErrorList.error2: print("thorws error2")
-         case ErrorList.error3: print("thorws error3")
-         default: print("no error detected")
-     }
+     //switch Error
+    // {
+     //    case ErrorList.error1: print("thorws error1")
+     //    case ErrorList.error2: print("thorws error2")
+    //     case ErrorList.error3: print("thorws error3")
+    //     default: print("no error detected")
+     //}
+print(Error)
 }
 
