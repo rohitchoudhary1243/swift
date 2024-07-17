@@ -1,0 +1,37 @@
+// Exception Handling
+
+enum ErrorList: Error
+{
+    case error1 
+    case error2
+    case error3
+}
+func labProject(fuel: Int, hydrogen: Int) throws
+{
+    if (fuel <= 1000 && fuel > 500)
+    {
+        throw ErrorList.error3
+    }
+    else if (fuel <= 500 && fuel > 100)
+    {
+        throw ErrorList.error2
+    }
+    else if (fuel <= 100)
+    {
+        throw ErrorList.error3
+    }
+    print("error resolved")
+}
+do {
+ try labProject(fuel: 700, hydrogen: 500)
+}
+catch let Error{
+     switch Error
+     {
+         case ErrorList.error1: print("thorws error1")
+         case ErrorList.error2: print("thorws error2")
+         case ErrorList.error3: print("thorws error3")
+         default: print("no error detected")
+     }
+}
+
