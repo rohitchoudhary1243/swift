@@ -1,0 +1,40 @@
+// inout method
+
+var var1: Int = 1 
+func modify(num: inout Int)
+{
+    num = 2
+    print(num)
+}
+modify(num: &var1)
+
+func exchange(num1: inout Int, num2: inout Int)
+{
+    let temp = num1
+    num1 = num2
+    num2 = temp
+    
+}
+var a = 34
+var b = 76
+print("before swapping the values are \(a) and \(b)")
+exchange(num1: &a, num2: &b)
+print("before swapping the values are \(a) and \(b)")
+
+
+// generic method
+
+func exchange<T>(num1: inout T, num2: inout T)
+{
+    let temp = num1
+    num1 = num2
+    num2 = temp
+    
+}
+var c = "'my name is'"
+var d = "'rohit'"
+print("before swapping the values are \(c)  \(d)")
+exchange(num1: &c, num2: &d)
+print("before swapping the values are \(c)  \(d)")
+
+
