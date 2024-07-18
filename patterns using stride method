@@ -1,0 +1,71 @@
+func patternSpace()
+{
+for i in 0...4
+{
+    for _ in stride(from: 4, to: i, by: -1)
+    {
+        print(terminator: " ")
+    }
+    for k in 0...i
+    {
+        print(k, terminator: "")
+    }
+    print("")
+}
+}
+
+patternSpace()
+
+//
+
+
+func patternDiognal()
+{
+//print("printing diognal pattern")
+    for i in stride(from: 0, to: 5, by: 1)
+    {
+        for j in stride(from: 5, to: i, by: -1)
+        {
+        print(j, terminator: "")
+        }
+         print(" ")
+    }
+   
+}
+patternDiognal()
+
+
+func patternArrow()
+{
+print("printing arrow pattern")
+     for i in stride(from: 0, to: 5, by: 1)
+    {
+        for j in stride(from: 0, to: i, by: 1)
+        // printing values from 0 to i in row
+        {
+        print(j, terminator: "")
+        }
+         print(" ")
+    }
+     for i in stride(from: 0, to: 5, by: 1)
+    {
+        for j in stride(from: 5, to: i, by: -1)
+        // printing values from 5 to i in row
+        {
+        print(j, terminator: "")
+        }
+         print(" ")
+    }
+}
+patternArrow()
+
+
+
+
+
+
+
+
+
+
+
