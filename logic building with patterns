@@ -1,0 +1,97 @@
+
+
+func pattern1()
+{
+print("this is pattern diognal")
+for i in 1...5
+{
+     for j in 1...i
+    {
+        print(j, terminator: "")
+    }
+    print("")
+}
+}
+pattern1()
+
+//
+
+
+func patternStar()
+{
+print("this is pattern diognal star")
+for i in 1...5
+{
+     for _ in 1...i
+    {
+        print("*", terminator: "")
+    }
+    print("")
+}
+}
+patternStar()
+
+
+func patternStarReverse()
+{
+print("this is pattern in reverse order")
+for i in 1...5
+{
+     for _ in 1...i
+    {
+        print("*", terminator: "")
+    }
+    print("")
+}
+for i in 0...5-1
+ {
+    print(String.init(repeating: "*", count: 5 - i))
+ }
+}
+patternStarReverse()
+
+func reverseDiognal()
+{ 
+print("printing reverse diognal")
+    for i in 1...10
+    {
+        print(String.init(repeating: " ", count: 10 - i)+String.init(repeating: "*",count: i))
+    }
+}
+reverseDiognal()
+
+
+
+func pyramid()
+{
+print("printing pyramid")
+    for i in 1...10
+    {
+        print(String.init(repeating: " ", count: 10 - i)+String.init(repeating: "*", count: i*2 - 1))
+        
+         /* print(String.init(repeating: " ", count: 10 - i)+String.init(repeating: "*", count: i)+String.init(repeating: "*", count:  i))
+         */
+    }
+}
+pyramid()
+
+
+
+/* //diomond
+func diomond()
+{
+print("printing diomond")
+    for i in 1...10
+    {
+        print(String.init(repeating: " ", count: 10 - i)+String.init(repeating: "*", count: i*2 - 1))
+        
+    }
+    for i in 0...10-1
+    {
+        print(String.init(repeating: " ", count: 10 - i)+String.init(repeating: "*", count: i*2 - 1))
+        
+    }
+}
+diomond()
+*/
+
