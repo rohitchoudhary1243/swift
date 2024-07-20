@@ -1,0 +1,52 @@
+
+
+enum errorDetector: Error
+{
+    case inSufficientFuel(minimumFuelQuantity: Int)
+    case earthDistance(maximumLightYears: Int)
+}
+struct spaceship
+{
+    func fuelDetector(fuel: Int) throws ->  String
+    {
+        if (fuel < 500)
+        {   
+            throw errorDetector.inSufficientFuel(minimumFuelQuantity: 400)
+            //print("inSufficient fuel detected")
+        }
+        return "fuel is sufficient"
+    }
+    
+    func distanceDetector(distance: Int) throws -> String
+    {
+        if (distance == 10)
+        {
+            throw errorDetector.earthDistance(maximumLightYears: 10)
+        }
+        return ("you can move away")
+    }
+}
+let objError = spaceship()
+ 
+// do 
+// {
+//     try objError.fuelDetector(fuel: 400)
+    
+// }
+// catch errorDetector.inSufficientFuel(let minimumFuelQuantity)
+// {
+//     print("error occured because inSufficient fuel quantity, the minimum fuel quantity is \(minimumFuelQuantity)")
+// }
+
+do {
+try objError.distanceDetector(distance: 10)
+}
+catch errorDetector.earthDistance(let maximumLightYears)
+{
+    print("Alert! you reached the maximum possible distance from earth \(maximumLightYears) light years, don't move away")
+}
+
+
+
+
+
