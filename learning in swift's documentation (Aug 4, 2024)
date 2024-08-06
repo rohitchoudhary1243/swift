@@ -1,0 +1,121 @@
+// Things i learned today (Aug 4, 2024)
+// #1
+let pi = 3.14_45
+print(pi)
+
+
+// #2
+var cannotBeNegative: UInt = 1
+// UInt can't store negative numbers
+// explicit type of numeric
+
+
+// #3
+var maxValue: Int8 = Int8.max /* + 1 */
+print(maxValue)
+
+
+// #4
+var thousand: UInt16 = 1_000
+var one: UInt8 = 1
+var sum = thousand + UInt16(one)
+print("the sum is \(sum) ")
+// they can't be added directly , Because they are not same type
+
+
+// #5
+typealias  velocity = UInt16
+var valueOfVelocity = velocity.max
+print(valueOfVelocity)
+
+
+// #6
+// tuples are group of multiple values in single compound value
+var http404Error = (404, "page not found")
+var (errorCode, errorMessage) = http404Error
+// if i need some of the tuples values i can ignore other values by _
+var (errorCodeOnly, _) = http404Error
+print("error code is \(errorCode)")
+print("error message is \(errorMessage)")
+// i can also index the values of tuples 
+print("error code by index is: \(http404Error.0)")
+print("error message by index is: \(http404Error.1)")
+
+// also we can name the individual element in tuple and access by name
+var student = (name: "nameValue", number: 786789)
+print("the name of tuple is: \(student.name), and the number is: \(student.number)")
+
+
+// #7
+// optionals
+// An optional Int always contains either some Int value or no value at all. It can’t contain anything else, like a Bool or String value.
+var serverResponseCode: Int? = 404
+serverResponseCode = nil
+
+var optionalData: String?
+// optionalData automatically set to nil
+
+
+
+// optional binding 
+// 4 methods for unwrapping optionals (optional binding)
+var numValue: Int?
+
+// // method #1 Force unwrap using ! (unSecure)
+//print("the number is \(numValue!)")
+
+
+// #2 method, providing a fallback value using ?? 
+// fallback value not works on constants
+ print("the number is \(numValue ?? 123)")
+// fallback example
+var name: String? 
+var greeting = "hello " + (name ?? "man ") + "how are you?"
+print(greeting)
+
+
+// #3 method, if let (if let method is limited to scope)
+if let numberValue = numValue{
+    print(" number value found! \(numberValue)")
+}
+else{
+    print("numValue is nil")
+}
+
+//we can create chaining of if let and  separates by commas
+
+if let firstNumber = Int("10"), let secondNumber = Int("20"), firstNumber < secondNumber && secondNumber < 100{
+    print(" \(firstNumber) < \(secondNumber) < 100")
+}
+
+// same thing
+
+// if let firstNumber = Int("10"){
+//     if let secondNumber = Int("20"){
+//         if  firstNumber < secondNumber && secondNumber < 100{
+//             print("\(firstNumber) < \(secondNumber) < 100")
+//         }
+//     }
+// }
+
+
+// #4 method, implicitly unwrapped optionals
+
+let optionalString: String? = "this is optional String"
+let forceUnwrapping = optionalString!
+print(forceUnwrapping) // requires force unwrapping (explicit unwrapping)
+let implicitString: String! = "this is implicit unwrapped string"
+let implicitUnwrapping: String = implicitString
+print(implicitUnwrapping)
+// implicit unwrapping requires define data type
+
+if implicitString != nil{
+    print("\(String(implicitString)) (requires defining data type)")
+}
+
+// implicit unwrapped with optional binding 
+if let optionalString = implicitString{
+    print("\(optionalString) (with optional binding) ")
+}
+
+// Assertion
