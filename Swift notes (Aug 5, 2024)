@@ -1,0 +1,58 @@
+// Aug 5, 2024
+// new things to me
+// #1, unary minus operator 
+let four = 4
+let minusFour = -four
+let plusFour = -minusFour
+print("minus four is: ", minusFour)
+
+
+// #2 unary plus operator
+let five = -5
+let plusFive = +five
+print("also minus five ", plusFive)
+//Although the unary plus operator doesn’t actually do anything, you can use it to provide symmetry in your code for positive numbers when also using the unary minus operator for negative numbers.
+
+
+// #3, tuples comparison, using comparison operator
+var fruits = (quantity: 50, name: "apple")
+var veges = (quantity: 20, name: "tomato")
+if fruits < vegas{
+    print("fruits are less than Vegas")
+}
+else if fruits > vegas{
+    print("Vegas are less than fruits")
+}
+else if fruits == vegas{
+    print("Vegas and fruits are equal")
+}
+else{
+    print("invalid quantity")
+}
+// The Swift standard library includes tuple comparison operators for tuples with fewer than seven elements. To compare tuples with seven or more elements, you must implement the comparison operators yourself.
+
+
+// #4, half open range operator
+var names = ["rohit", "freja", "ada", "thomas", "esme", "john", "grace"]
+var counts = names.count
+for i in 0..<counts{
+    print("the \(i + 1) name is \(names[i])")
+}
+// The half-open range operator (a..<b) defines a range that runs from a to b, but doesn’t include b. Half-open ranges are particularly useful when you work with zero-based lists such as arrays
+
+
+
+// #5, one sided ranges 
+for name in names[2...]{
+    print("by one sided rane operator", name)
+}
+
+for name in names[...3]{
+    print("from zero to 3", name)
+}
+
+// The half-open range operator also has a one-sided form that’s written with only its final value. Just like when you include a value on both sides, the final value isn’t part of the range. For example:
+for name in names[..<3]{
+    print("3 names will print:", name)
+}
+
