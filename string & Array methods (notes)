@@ -1,0 +1,111 @@
+// Aug 7, 2024
+//#1 comparing strings, extended grapheme clusters canonically equivalence
+//  Two String values (or two Character values) are considered equal if their extended grapheme clusters are canonically equivalent. Extended grapheme clusters are canonically equivalent if they have the same linguistic meaning and appearance, even if they’re composed from different Unicode scalars behind the scenes.
+var eAcute = "this is the caf\u{E9}"
+var combinedEAcute = "this is the caf\u{65}\u{301}"
+if eAcute == combinedEAcute{
+    print("both strings are equal")
+}
+
+
+
+// #2 hasPrefix and hasSuffix Equality
+var vikingsSeries = [
+"season 1, episode 1: Rites of Passage",
+"season 1, episode 2: Wrath of the Northmen",
+"season 1, episode 3: Dispossessed",
+"season 1, episode 4: Trial",
+"season 1, episode 5: Raid war",
+"season 1, episode 6: Burial of the Dead",
+"season 1, episode 7: A King's Ransom",
+"season 1, episode 8: Sacrifice",
+"season 1, episode 9: All Change",
+"season 2, episode 1: Brother's war",
+"season 2, episode 2: Invasion",
+"season 2, episode 3: Treachery",
+"season 2, episode 4: Eye for an Eye",
+"season 2, episode 5: Answers in Blood",
+"season 2, episode 6: Unforgiven",
+"season 2, episode 7: Blood Eagle",
+"season 2, episode 8: Boneless",
+"season 2, episode 9: The Choice",
+"season 2, episode 10: The Lord's Prayer",
+]
+var episodeCount = 0
+for count in vikingsSeries{
+    if count.hasPrefix("season 1"){
+        episodeCount += 1
+    }
+}
+print("\n there are \(episodeCount) episodes in season 1")
+var warCount = 0
+for countWord in vikingsSeries{
+    if countWord.hasSuffix("war"){
+        warCount += 1
+    }
+}
+print(" there are \(warCount) episodes of war in 2 seasons of vikings")
+
+
+
+// #3 unicode representations of string
+//  You can access a UTF-8 representation of a String by iterating over its utf8 property. This property is of type String.UTF8View, which is a collection of unsigned 8-bit (UInt8) values, one for each byte in the string’s UTF-8 representation.
+var welcomeMessage = "Hallo, velkommen 😊"
+for utf8Char in welcomeMessage.utf8{
+    print("utf8 representation: \(utf8Char) ")
+}
+for utf16Char in welcomeMessage.utf16{
+    print("utf16 representation: \(utf16Char)")
+}
+
+
+// #4 unicode scalar representation
+print("unicode scalar representation:")
+for unicodeScalar in welcomeMessage.unicodeScalars{
+    print(" \(unicodeScalar.value)", terminator: "")
+}
+
+
+
+// new things to me in collection types (arrays, sets, dictionaries )
+
+// #5 Creating an array with a default value
+let fourInts = Array(repeating: 0, count: 4)
+let fourMoreInts = Array(repeating: 4, count: 4)
+var sumOfTwoArrays = fourInts + fourMoreInts
+print("ints are:", sumOfTwoArrays)
+
+
+
+// #6 .append (_ :) method
+var myCart = ["macbook", "drone", "books"]
+myCart.append("raspberry pi")
+for item in myCart{
+    print(" ", item, terminator: "")
+}
+
+
+
+// #7 change an existing value at a given index
+myCart[0] = "MacMini"
+print("\n \(myCart[0])")
+// .remove(at:_) and .insert("", at:) methods are more useful
+
+
+// #8 subscript syntax to change a range of values
+// myCart[4...6] = ["iMac", "iPhone","vision"]
+// print(myCart)
+
+
+
+// #9 removeLast() method
+myCart.removeLast() // value at last index in array is removed
+print(myCart)
+
+
+
+// #10 enumerated() method
+for (index, value) in myCart.enumerated(){
+    print("\(index + 1) index has '\(value)' value.")
+}
+
