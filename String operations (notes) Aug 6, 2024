@@ -1,0 +1,156 @@
+Aug 6, 2024
+// #1 , multiline string literals
+let stringValue = """
+If you need a string that spans several lines, 
+use a multiline string literal a sequence of characters 
+surrounded by three double quotation marks
+"""
+print(stringValue)
+let lineBreakString = """
+"If you want to use line breaks to make your source code easier to read, 
+"but you don’t want the line breaks to be part of the string’s value"
+write a backslash"
+" () at the end of those lines" 
+"""
+print(lineBreakString)
+
+
+// #2 Double quotation mark
+let quote = "\"hello i'm rohit\""
+print(quote)
+
+
+
+// #3 unicode scalar value
+let dollarSign = "\u{24}"
+let blackHeart = "\u{2665}"
+let sparklingHeart = "\u{1F496}"
+print(dollarSign,blackHeart, sparklingHeart)
+
+
+
+// #4 
+let threeDoubleQuotationMarks = """
+Escaping the first quotation mark \"""
+Escaping all three quotation marks \"\"\"
+"""
+print(threeDoubleQuotationMarks)
+
+
+
+// #5 extended string delimiters
+let includeQuotationInString = #"""
+  "String literals created using extended delimiters can also be multiline string literals. 
+  we can use extended delimiters to include the text """ in a multiline string, overriding the default behavior that ends the literal. For example"
+"""#
+print(includeQuotationInString)
+
+
+
+// #6 .append method
+var greeting = "welcome"
+var exclamationMark: Character = "!"
+greeting.append(exclamationMark)
+print(greeting)
+
+
+
+// #7 line break in concatanation with including the last line
+var badFruitSequence1 = """
+"apple"
+"banana"
+"orange"
+"""
+var badFruitSequence2 = """
+"grape"
+"naseberry"
+"""
+print("bad sequence is: \n",badFruitSequence1 + badFruitSequence2)
+
+var goodFruitSequence1 = """
+"apple"
+"banana"
+"orange"
+
+"""
+var goodFruitSequence2 = """
+"grape"
+"naseberry"
+"""
+print("good sequence is: \n",goodFruitSequence1 + goodFruitSequence2)
+
+
+
+// #8 inside string interpolation
+//  we can use extended string delimiters to create strings containing characters that would otherwise be treated as a string interpolation. For example
+print(#"this is extended delimiter string so \(includeQuotationInString) will not print"#)
+
+//  To use string interpolation inside a string that uses extended delimiters, match the number of number signs after the backslash to the number of number signs at the beginning and end of the string. For example
+print(#"2 times 3 is \#(2 * 3)"#)
+//  The expressions you write inside parentheses within an interpolated string can’t contain an unescaped backslash (\), a carriage return, or a line feed. However, they can contain other string literals.
+
+
+
+
+// #9 Extended graphime clusters
+//  Every instance of Swift’s Character type represents a single extended grapheme cluster. An extended grapheme cluster is a sequence of one or more Unicode scalars that (when combined) produce a single human-readable character.
+var eOriginal: Character = "\u{E9}"
+print(eOriginal)
+
+var eCombined: Character = "\u{65}\u{301}"
+print(eCombined)
+
+let precomposed: Character = "\u{D55C}"
+let decomposed: Character = "\u{1112}\u{1161}\u{11AB}"
+print(precomposed)
+print(decomposed)
+
+let enclosedEAcute: Character = "\u{E9}\u{20DD}"
+print(enclosedEAcute)
+
+
+
+// #10 String indices
+let message = "hei, velkommen"
+print("startindex of message: ", message[message.startIndex])
+print("before message end index: ", message[message.index(before: message.endIndex)])
+print("after message start index: ", message[message.index(after: message.startIndex)])
+
+let indexby = message.index(message.startIndex, offsetBy: 8)
+print("message offset By: ", indexby)
+
+// Use the indices property to access all of the indices of individual characters in a string.
+for index in message.indices{
+    print("\(message[index])", terminator: "")
+}
+
+
+
+// #11 inserting and removing
+var welcome = "hello "
+welcome.insert("!", at: welcome.endIndex)
+print(" \n ", welcome)
+welcome.insert(contentsOf: "there", at: welcome.index(before: welcome.endIndex))
+print("\n", welcome)
+
+// To remove a single character from a string at a specified index, use the remove(at:) method, and to remove a substring at a specified range, use the removeSubrange(_:) method
+welcome.remove(at: welcome.index(before: welcome.endIndex))
+print("\n", welcome)
+
+let removeRange = welcome.index(welcome.endIndex, offsetBy: -5)..<welcome.endIndex 
+welcome.removeSubrange(removeRange)
+print("\n", welcome)
+
+
+
+
+// #12 substrings
+//  Like strings, each substring has a region of memory where the characters that make up the substring are stored. The difference between strings and substrings is that, as a performance optimization, a substring can reuse part of the memory that’s used to store the original string, or part of the memory that’s used to store another substring
+var loginData = "username: user123, password: 123"
+var userIndex = loginData.firstIndex(of: ",") ?? loginData.endIndex
+var username = loginData[..<userIndex]
+print("\n",username)
+
+
+
+
