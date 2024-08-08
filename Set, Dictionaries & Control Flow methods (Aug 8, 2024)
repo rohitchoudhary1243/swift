@@ -1,0 +1,194 @@
+// Aug 8, 2024
+// #1 A set with array literal
+var genres: Set<String> = ["medievel", "classical", "rock", "jazz"]
+print(genres)
+
+
+
+// #2 
+if let removedValue = genres.remove("jazz"){
+    print("\(removedValue) is not in my favorite genres."  )
+}
+else{
+    print("\n syntx error! you not removed any value ")
+}
+
+
+
+// #3 removeAll() method (.remove & .insert also applies on sets)
+// genres.removeAll()
+// print("set is empty now: ",genres)
+
+
+
+// #4 contains(_ :) method
+//  To check whether a set contains a particular item, use the contains(_:) method.
+
+if genres.contains("classical"){
+    print("yeah! i love classical music")
+}
+else{
+    print("classical isn't in my list")
+}
+
+
+
+// #5 sorted() method for iterating by specific order in set
+for genre in genres.sorted(){
+    print("\(genre) ", terminator: "")
+}
+
+
+
+// #6 set operations
+// a.intersection(b).sorted.        // create a new set of common values of both sides a & b 
+// a.symmetricDifference(b).sorted // values are not common
+// a.union(b).sorted               // both side values
+// a.subtracting(b).sorted        // subtract one side value
+
+
+
+// #7 Set membership and equality
+var user1Cart: Set = ["book1", "book2"]
+var user2Cart: Set = ["book1","book2","book3","book4"]
+var user3Cart: Set = ["book5","book6"]
+
+ let user1: Bool = user1Cart.isSubset(of: user2Cart)
+let user2: Bool = user2Cart.isSuperset(of: user1Cart)
+let user3: Bool = user2Cart.isDisjoint(with: user3Cart)
+
+if user1 == true{
+    print(" \n user1 cart is subset of user2 cart")
+} else{
+  print("\n user1 cart is not subset of any cart")  
+}
+ 
+ if user2 == true{
+    print("\nuser2 cart is superset of user1 cart")
+} else{
+    print("\nuser2 cart is not superset of any cart")
+}
+if user3 == true{
+    print("user2 cart is disjoint with user 3 cart ")
+}
+else{
+    print("user2 cart and user3 cart aren't disjoint with each other")
+}
+
+
+
+
+
+// Dictionaries
+// #1 change & add new item i dictionary
+var peakyBlindersCast = ["cillian murphy": "thomas shelby", "paul andersen": "arthur shelby", "sophie rundle": "ada shelby" ]
+peakyBlindersCast["gaite jansen"] =  "tatiana petrovna"
+print(peakyBlindersCast)
+peakyBlindersCast["gaite jansen"] =  "tatiana"
+print(peakyBlindersCast)
+
+
+// #2 updatevalue(_, forKey:) method
+if let oldValue = peakyBlindersCast.updateValue("tommy", forKey: "cillian murphy"){
+    print("\nthe old value of cillian murphy was \"\(oldValue)\" ")
+}
+
+
+
+// #3 retrive a value using subscript syntax (because dictionary returns optional value)
+if let returnedOptionalValue = peakyBlindersCast["cillian murphy"]{
+    print("\ncillian murphy role was as a \(returnedOptionalValue) in peaky blinders")
+}
+else{
+    print("\nno actor with this name was found.")
+}
+
+
+
+// #4 removeValue("", forKey:) method 
+// alternatively ...
+// peakyBlindersCast["gaite jansen"] = nil
+// print("\ngaite jansen role was removed",peakyBlindersCast)
+
+if let removedValue = peakyBlindersCast.removeValue(forKey:"gaite jansen" ){
+    print("\(removedValue) removed for key: \"gaite jansen\"")
+}
+
+
+
+//  #5 iterating over through dictionaries 
+//  Each item in the dictionary is returned as a (key, value) tuple, and you can decompose the tuple’s members into temporary constants or variables as part of the iteration
+for (realName, castName) in peakyBlindersCast{
+    print("\n real name of \"\(castName)\" is \"\(realName)\" in peaky blinders.")
+}
+
+
+
+
+//  #6 iterating through .keys & .values properties
+print("real names:")
+for realName in peakyBlindersCast.keys{
+    print("\n",realName)
+}
+
+print("cast names:")
+for castName in peakyBlindersCast.values{
+    print("\n",castName)
+}
+
+
+
+// #7 dictionary’s keys or values with an API that takes an Array instance
+var castNames = [String](peakyBlindersCast.values)
+var realNames = [String](peakyBlindersCast.keys)
+print("castNames array values are: \(castNames)")
+print("realNames array values are: \(realNames)")
+
+
+// Swift’s Dictionary type doesn’t have a defined ordering. To iterate over the keys or values of a dictionary in a specific order, use the sorted() method on its keys or values property.
+
+
+
+  // Control Flow
+  // #1 stride(from: , to: ,by: ) method in for in loop
+  let minutes = 59
+  let minutesBreak = 5
+  for time in stride(from: 0, to: minutes, by: minutesBreak)
+  {
+      print(time, terminator: " ")
+  }
+  //  Closed ranges are also available, by using stride(from:through:by:) instead
+  let hours = 12
+  let hoursBreak = 3
+  for hour in stride(from: 0, through: hours, by: hoursBreak)
+  {
+      print("\n",hour, terminator: " ")
+  }
+  
+  
+// #2 in if statements
+//  An alternate way to provide this type information is to provide an explicit type for nil, instead of providing an explicit type for freezeWarning:
+var tempratureInCelcius = -10
+  var warning = if tempratureInCelcius <= 0{
+      "it's too cold, consider to wearing a Scarf."
+  } else
+  {
+      nil as String?
+  }
+  
+  
+  
+  // #3 if statement can throw error
+  //  An if expression can respond to unexpected failures by throwing an error or calling a function like fatalError(_:file:line:) that never returns. For example
+  /*
+  struct errorMessage: Error {
+      var errorFound = "Warning: Climate is too warm please reduce the carbon and Co2 emisions"
+  }
+  var climateWarning = if tempratureInCelcius >= 30{
+     throw errorMessage.errorFound
+  }
+  else{
+      "don't worry climate is cool"
+  }
+  */
+  
