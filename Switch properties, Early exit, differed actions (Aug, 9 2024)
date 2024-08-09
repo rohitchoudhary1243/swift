@@ -1,0 +1,134 @@
+// Aug 9, 2024
+// #1 switch compound case 
+var name = "finn"
+let loginMethod = "password"
+switch loginMethod{
+    case "password" , "2F auth":
+        print("welcome back, \(name)")
+    default:
+    print("access denied!")
+}
+
+
+
+// #2 
+var satteliteOrbit = (11,21)
+switch satteliteOrbit{
+    case (11...15, 21...25):
+    print("congratulations! your fucking sattelite is out of the orbit.")
+    case (5..<10, 10...15):
+    print("sattelite is too inside from the orbit")
+    case (_,15...20):
+    print("sattelite 1 axis value is unefined")
+    case (10, 20):
+    print("sattelite is on the orbit")
+    default:
+    print("sattelite is out of the network")
+}
+
+
+
+// #3 value bindings in switch case
+var anotherSatteliteOrbit = (11,21)
+switch anotherSatteliteOrbit{
+    case (let x, 21...25):
+    print("your fucking sattelite's x orbit is \(x) ")
+    case (5..<10, let y):
+    print("sattelite is too inside from the orbit, the y axis is: \(y)")
+    case (_,15...20):
+    print("sattelite 1 axis value is unefined")
+    case (10, 20):
+    print("sattelite is on the orbit")
+    default:
+    print("sattelite is out of the network")
+}
+
+
+
+// #4 where clause in switch to check additional conditions
+var points = (2,2)
+switch points{
+    case let (x,y) where x == y:
+    print("\n x axis \(x) and y axis \(y) are equal")
+    case let (x,y) where x < y:
+    print("\n\(x) is less than \(y)")
+    case let (x,y) where x > y:
+    print("\n\(x) is greater than \(y)")
+    default:
+    print("\nfucking parameters are wrong")
+}
+
+
+
+
+// #5 Fallthrough in switch
+//  If we need C-style fallthrough behavior, you can opt in to this behavior on a case-by-case basis with the fallthrough keyword. The example below uses fallthrough to create a textual description of a number.
+var velocity = 100
+var message = "The fucking rocket is  "
+switch velocity{
+    case 90, 100, 110:
+    message += "moving and velocity is \(velocity) "
+     fallthrough
+    default:
+    message += "good luck, fucking man! "
+} 
+print(message) 
+
+
+
+// #6 Early exit
+func greeting(message: [String: String])
+{
+    guard let displayName = message["name"] else
+    {
+        return
+    }
+    print("hello \(displayName), how are you?")
+    guard let displayTime = message["time"] else
+    {
+        return
+    }
+    print("hello \(displayName), good \(displayTime)")
+}
+greeting(message:["name": "john", "time": "afternoon"])
+
+
+
+// #7 deferred actions
+var score = 1
+if score < 10
+{
+    defer {
+    print("the score is \(score)")
+    }
+    score += 5
+}
+// if we specify more than one defer blocks in a statement, the first one will execute in last 
+let bonusScore = 10
+if score < 100
+{
+    defer
+    {   
+        score = 100
+        print("the score is already printed")
+    }
+    defer
+    {
+        print("the score is \(score + bonusScore)")
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
